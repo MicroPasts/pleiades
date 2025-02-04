@@ -215,13 +215,21 @@ const features = records.data.map(row => {
         { label: 'Place types', value: placeTypes[1] }
     ];
 
-    const trimmedDescription = description.trim().replace(/\n/g, '');
+    const trimmedDescription = description.trim().replace(/\n/g, '') + '<br/>Authors: ' + authors.trim().replace(/\n/g, '')
+    +  '<br/>Time periods associated: ' + timePeriodsKeys.trim().replace(/\n/g, '') 
+    + '<br/>PleiadesID: ' + id.trim().replace(/\n/g, '');
     
+    const replaceHyphensInTimePeriodRange = (range) => {
+        if (!range) return range;
+        return range.split('-').join(' to ');
+    };
+
+    const timePeriodsKeysFormatted = replaceHyphensInTimePeriodRange(timePeriodsKeys);
     const peripleoRecord = {
         '@id': source.trim(),
         type: 'Feature',
         properties: {
-            title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods, locationPrecision, minDate, maxDate, placeTypes
+            title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods, locationPrecision, minDate, maxDate, placeTypes, timePeriodsKeysFormatted, timePeriodsRange
         },
         descriptions: [{ value: trimmedDescription }]
     };

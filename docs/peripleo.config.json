@@ -9,7 +9,8 @@
     { "name": "Minimum date", "path": ["properties", "minDate"]},
     { "name": "Maximum date", "path": ["properties", "maxDate"]},
     { "name": "Authors", "path": ["properties", "authors"]},
-    { "name": "Place types", "path": ["properties", "placeTypes"]}
+    { "name": "Place types", "path": ["properties", "placeTypes"]},
+    { "name": "Time periods", "path": ["properties", "timePeriodkeys"]}
   ],
   "link_icons": [
     
