@@ -221,7 +221,7 @@ const features = records.data.map(row => {
     
     const replaceHyphensInTimePeriodRange = (range) => {
         if (!range) return range;
-        return range.split('-').join(' to ');
+        return [range.split('-').join(' to ')];
     };
 
     const timePeriodsKeysFormatted = replaceHyphensInTimePeriodRange(timePeriodsKeys);
