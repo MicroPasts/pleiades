@@ -20,13 +20,13 @@
     { "pattern": "achurchnearyou.com", "img":"./logos/c_of_logo_v3.jpg", "label": "A Church Near You" },
     { "pattern": "britishlistedbuildings.co.uk", "img":"./logos/britishlistedbuildings.jpg", "label": "British Listed Buildings"},
     { "pattern": "wikipedia.org", "img":"./logos/en.wikipedia.org.png", "label": "Wikipedia"},
-    { "pattern": "pleiades.org", "img":"./logos/pleiades.png"}
+    { "pattern": "pleiades.stoa.org", "img":"./logos/pleiades.png"}
   ],
   "layers": [
     { 
       "name": "Acqueducts", 
       "type": "geojson",
-      "src": "./data/acqueducts.geojson", 
+      "src": "./data/acqueducts.json", 
       "color": "#000000" 
     }
   ]
