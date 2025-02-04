@@ -109,13 +109,23 @@ const getDepiction = (row) => {
     };
 }
 
+
 const getLinks = (properties) => {
     const urls = {
-        pleiadesID: 'https://pleiades.stoa.org/places/',
+        id: 'https://pleiades.stoa.org/places/',
+        item: 'http://www.wikidata.org/entity/',
+        wikipedia_en: 'https://en.wikipedia.org/wiki/',
+        geonames_ids: 'https://www.geonames.org/',
+        nomisma_ids: 'http://nomisma.org/id/',
+
     };
 
     const labels = {
-        pleiadesID: 'A place on Pleiades: '
+        id: 'A place on Pleiades: ',
+        item: 'A Wikidata entity: ',
+        wikipedia_en: 'A Wikipedia page: ',
+        geonames_ids: 'A Geonames page: ',
+        nomisma_ids: 'A Nomisma ID: ',
     };
 
     const links = Object.keys(urls).reduce((acc, key) => {
@@ -174,7 +184,7 @@ const buildFeature = (record, place, lon, lat, row) => {
  * @constant {string} recordsCsv - The content of the CSV file as a UTF-8 encoded string.
  * @requires fs - The Node.js File System module to read the file.
  */
-const recordsCsv = fs.readFileSync('../csv/pleiades-places.csv', { encoding: 'utf8' });
+const recordsCsv = fs.readFileSync('../csv/enhanced.csv', { encoding: 'utf8' });
 
 /**
  * Parses a CSV string into an array of objects using PapaParse.
@@ -184,14 +194,13 @@ const recordsCsv = fs.readFileSync('../csv/pleiades-places.csv', { encoding: 'ut
  */
 const records = Papa.parse(recordsCsv, { header: true });
 
-
 const features = records.data.map(row => {
     const {
         authors,bbox,connectsWith,created,creators,currentVersion,
         description,extent,featureTypes,geoContext,hasConnectionsWith,
         id,locationPrecision,maxDate,minDate,modified,path,reprLat,
         reprLatLong,reprLong,tags,timePeriods,timePeriodsKeys,timePeriodsRange,
-        title,uid
+        title,uid,chronique_ids,dare_ids,geonames_ids,gettytgn_ids,idaigaz_ids,loc_ids,manto_ids,nomisma_ids,topostext_ids,trismegistos_ids,viaf_ids,vici_ids,wikipedia_en
 
     } = row;
     const source = 'https://pleiades.stoa.org/places/' + id;
@@ -229,7 +238,8 @@ const features = records.data.map(row => {
         '@id': source.trim(),
         type: 'Feature',
         properties: {
-            title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods, locationPrecision, minDate, maxDate, placeTypes, timePeriodsKeysFormatted, timePeriodsRange
+            title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods, locationPrecision, minDate, maxDate, placeTypes, timePeriodsKeysFormatted, timePeriodsRange,
+            chronique_ids,dare_ids,geonames_ids,gettytgn_ids,idaigaz_ids,loc_ids,manto_ids,nomisma_ids,topostext_ids,trismegistos_ids,viaf_ids,vici_ids,wikipedia_en
         },
         descriptions: [{ value: trimmedDescription }]
     };
