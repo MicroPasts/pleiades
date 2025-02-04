@@ -11,7 +11,7 @@
     { "name": "Maximum date", "path": ["properties", "maxDate"]},
     { "name": "Authors", "path": ["properties", "authors"]},
     { "name": "Place types", "path": ["properties", "placeTypes"]},
-    { "name": "Time periods", "path": ["properties", "timePeriodkeys"]}
+    { "name": "Time periods", "path": ["properties", "timePeriodsKeysFormatted"]}
   ],
   "link_icons": [
     
