@@ -11,5 +11,12 @@
   ],
   "link_icons": [
     
-  ]
+  ],
+  "layers": [
+    { 
+      "name": "Acqueducts", 
+      "type": "geojson",
+      "src": "./data/acqueducts.geojson", 
+      "color": "#000000" 
+    }
 }
