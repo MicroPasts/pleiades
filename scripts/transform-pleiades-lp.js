@@ -200,6 +200,7 @@ const features = records.data.map(row => {
     const formattedDate = formatDate(created);
     const yearAdded = moment(formattedDate, "DD/MM/YYYY").year().toString() || null;
     const modifiedDate = formatDate(modified);
+    const placeTypes = featureTypes ? featureTypes.split(',') : [];
     const fields = [
         { label: 'Title', value: title },
         { label: 'Created', value: formattedDate ? formattedDate : null },
@@ -210,6 +211,8 @@ const features = records.data.map(row => {
         { label: 'Location precision', value: locationPrecision },
         { label: 'Minimum date', value: minDate },
         { label: 'Maximum date', value: maxDate },
+        { label: 'Has connections with', value: hasConnectionsWith },
+        { label: 'Place types', value: placeTypes[1] }
     ];
 
     const trimmedDescription = description.trim().replace(/\n/g, '');
@@ -218,7 +221,7 @@ const features = records.data.map(row => {
         '@id': source.trim(),
         type: 'Feature',
         properties: {
-            title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods, locationPrecision, minDate, maxDate
+            title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods, locationPrecision, minDate, maxDate, placeTypes
         },
         description: [{ value: trimmedDescription }]
     };

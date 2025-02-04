@@ -7,7 +7,9 @@
   "facets": [
     { "name": "Year added", "path": ["properties", "yearAdded"] },
     { "name": "Minimum date", "path": ["properties", "minDate"]},
-    { "name": "Maximum date", "path": ["properties", "maxDate"]}
+    { "name": "Maximum date", "path": ["properties", "maxDate"]},
+    { "name": "Authors", "path": ["properties", "authors"]},
+    { "name": "Place types", "path": ["properties", "placeTypes"]}
   ],
   "link_icons": [
     
