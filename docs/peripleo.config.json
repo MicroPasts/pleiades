@@ -3,7 +3,7 @@
   "data": [
     { "name": "Pleiades", "format": "LINKED_PLACES", "src": "./data/pleiades.json" }
   ],
-  "map_style": "./map-style-OSM.json",
+  "map_style": "./map-style-CAWM.json",
   "facets": [
     { "name": "Year added", "path": ["properties", "yearAdded"] },
     { "name": "Minimum date", "path": ["properties", "minDate"]},
