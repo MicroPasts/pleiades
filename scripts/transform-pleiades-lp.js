@@ -112,16 +112,14 @@ const getDepiction = (row) => {
 
 const getLinks = (properties) => {
     const urls = {
-        id: 'https://pleiades.stoa.org/places/',
         item: 'http://www.wikidata.org/entity/',
         wikipedia_en: 'https://en.wikipedia.org/wiki/',
         geonames_ids: 'https://www.geonames.org/',
-        nomisma_ids: 'http://nomisma.org/id/',
+        nomisma_ids: 'https://nomisma.org/id/',
 
     };
 
     const labels = {
-        id: 'A place on Pleiades: ',
         item: 'A Wikidata entity: ',
         wikipedia_en: 'A Wikipedia page: ',
         geonames_ids: 'A Geonames page: ',
