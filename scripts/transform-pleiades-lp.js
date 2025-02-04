@@ -215,12 +215,14 @@ const features = records.data.map(row => {
         '@id': source.trim(),
         type: 'Feature',
         properties: {
-            title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods
+            title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods, locationPrecision
         },
         description: [{ value: trimmedDescription }]
     };
 
-    return buildFeature(peripleoRecord, place, reprLong, reprLat, row);
+    if (locationPrecision && locationPrecision.trim() !== 'unlocated') {
+        return buildFeature(peripleoRecord, place, reprLong, reprLat, row);
+    }
 }).filter(Boolean);
 const indexing = getIndexing();
 const fc = {
