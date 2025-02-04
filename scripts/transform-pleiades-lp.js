@@ -206,7 +206,10 @@ const features = records.data.map(row => {
         { label: 'Last updated', value: modifiedDate ? modifiedDate : null },
         { label: 'Authors', value: authors },
         { label: 'Year added', value: yearAdded },
-        { label: 'Time periods associated', value: timePeriods}
+        { label: 'Time periods associated', value: timePeriods},
+        { label: 'Location precision', value: locationPrecision },
+        { label: 'Minimum date', value: minDate },
+        { label: 'Maximum date', value: maxDate },
     ];
 
     const trimmedDescription = description.trim().replace(/\n/g, '');
@@ -215,7 +218,7 @@ const features = records.data.map(row => {
         '@id': source.trim(),
         type: 'Feature',
         properties: {
-            title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods, locationPrecision
+            title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods, locationPrecision, minDate, maxDate
         },
         description: [{ value: trimmedDescription }]
     };

@@ -5,7 +5,9 @@
   ],
   "map_style": "./map-style-OSM.json",
   "facets": [
-    { "name": "yearAdded", "path": ["properties", "yearAdded"] }
+    { "name": "Year added", "path": ["properties", "yearAdded"] },
+    { "name": "Minimum date", "path": ["properties", "minDate"]},
+    { "name": "Maximum date", "path": ["properties", "maxDate"]}
   ],
   "link_icons": [
     
