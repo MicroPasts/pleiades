@@ -4,7 +4,7 @@
     { "name": "Pleiades", "format": "LINKED_PLACES", "src": "./data/pleiades.json" }
   ],
   "map_style": "./map-style-CAWM.json",
-  "welcome_message": "./welcome.md",
+  "welcome_message": "welcome.md",
   "facets": [
     { "name": "Year added", "path": ["properties", "yearAdded"] },
     { "name": "Minimum date", "path": ["properties", "minDate"]},
