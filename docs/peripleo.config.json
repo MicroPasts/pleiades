@@ -3,7 +3,7 @@
   "data": [
     { "name": "Pleiades", "format": "LINKED_PLACES", "src": "data/pleiades.json" }
   ],
-  "map_style": "https://api.maptiler.com/maps/outdoor/style.json?key=d0euEyiLMumxT80nx5ha",
+  "map_style": "./map-style-OSM.json",
   "facets": [
     { "name": "yearAdded", "path": ["properties", "yearAdded"] }
   ],
