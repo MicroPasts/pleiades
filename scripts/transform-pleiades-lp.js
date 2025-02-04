@@ -223,7 +223,7 @@ const features = records.data.map(row => {
         properties: {
             title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods, locationPrecision, minDate, maxDate, placeTypes
         },
-        description: [{ value: trimmedDescription }]
+        descriptions: [{ value: trimmedDescription }]
     };
 
     if (locationPrecision && locationPrecision.trim() !== 'unlocated') {
