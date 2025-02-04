@@ -1,7 +1,7 @@
 {
   "initial_bounds": [-28.9, -4.8, 88.2, 59.8],
   "data": [
-    { "name": "Pleiades", "format": "LINKED_PLACES", "src": "data/pleiades.json" }
+    { "name": "Pleiades", "format": "LINKED_PLACES", "src": "./data/pleiades.json" }
   ],
   "map_style": "./map-style-OSM.json",
   "facets": [
