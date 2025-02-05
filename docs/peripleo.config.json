@@ -21,9 +21,9 @@
     { "pattern": "nomisma.org", "img":"./logos/Nomisma_02-300x300.jpg"},
     { "pattern": "id.loc.gov", "img": "./logos/loc.png", "label": "Library of Congress" },
     { "pattern": "viaf.org", "img": "./logos/viaf.png", "label": "VIAF" },
-    { "pattern": "trismegistos.org", "img": "./logos/trismegistos.png", "label": "Trismegistos" },
+    { "pattern": "trismegistos.org", "img": "./logos/trismegestos.png", "label": "Trismegistos" },
     { "pattern": "vocab.getty.edu", "img": "./logos/getty.png", "label": "Getty TGN" },
-    { "pattern": "geonames.org", "img": "./logos/www.geonames.org.svg", "label": "GeoNames" }
+    { "pattern": "www.geonames.org", "img": "./logos/www.geonames.org.svg", "label": "GeoNames" }
   ],
   "layers": [
     { 
