@@ -13,6 +13,7 @@ import fs, { link } from 'fs';
 import Papa from 'papaparse';
 import commons from 'wikimedia-commons-file-path';
 import moment from 'moment';
+import { compress, decompress } from 'compress-json'
 
 /**
  * Creates a GeoJSON Point object from longitude and latitude.
@@ -54,6 +55,16 @@ const getIndexing = () => {
 
 
 
+/**
+ * Extracts and transforms types from the given properties object.
+ *
+ * @param {Object} properties - The properties object containing type information.
+ * @param {string} [properties.wikiInstanceOf] - The Wikidata instance of identifier.
+ * @param {string} [properties.wikidataEntityID] - The Wikidata entity ID.
+ * @param {string} [properties.heritage_category] - The heritage category of the site.
+ * @param {string} [properties.site_sub_type] - The sub-type of the site.
+ * @returns {Object} An object containing the transformed types.
+ */
 const getTypes = (properties) => {
     const wikiInstanceOf = properties.wikiInstanceOf ? 'https://www.wikidata.org/wiki/' + properties.wikiInstanceOf : null;
     const wikidataEntityID  = properties.wikidataEntityID ? 'https://www.wikidata.org/wiki/' + properties.wikidataEntityID : null;
@@ -94,12 +105,12 @@ const getTypes = (properties) => {
  * Generates a depiction object for a heritage site based on the provided row data.
  *
  * @param {Object} row - The data row containing information about the heritage site.
- * @param {string} row.image_path_commons - The path to the image on Wikimedia Commons.
+ * @param {string} row.commonsID - The path to the image on Wikimedia Commons.
  * @returns {Object|undefined} An object containing depictions of the heritage site, or undefined if no image path is provided.
  */
 const getDepiction = (row) => {
-    if (!row.image_path_commons) return;
-    const wikicommons = commons('File:' + row.image_path_commons, 800);
+    if (!row.commonsID) return;
+    const wikicommons = commons('File:' + row.commonsID, 800);
     return {
         depictions: [{
             '@id': wikicommons,
@@ -110,20 +121,41 @@ const getDepiction = (row) => {
 }
 
 
+/**
+ * Generates an array of link objects based on the provided properties.
+ *
+ * @param {Object} properties - The properties object containing various identifiers.
+ * @param {string} [properties.item] - The Wikidata entity ID.
+ * @param {string} [properties.wikipedia_en] - The Wikipedia page name.
+ * @param {string} [properties.geonames_ids] - The Geonames ID.
+ * @param {string} [properties.nomisma_ids] - The Nomisma ID.
+ * @returns {Object} An object containing an array of link objects.
+ * @returns {Array} return.links - The array of link objects.
+ * @returns {string} return.links[].identifier - The full URL of the link.
+ * @returns {string} return.links[].type - The type of the link, always 'seeAlso'.
+ * @returns {string} return.links[].label - The label for the link.
+ */
 const getLinks = (properties) => {
     const urls = {
         item: 'http://www.wikidata.org/entity/',
         wikipedia_en: 'https://en.wikipedia.org/wiki/',
-        geonames_ids: 'https://www.geonames.org/',
+        geomes_ids: 'https://www.geonames.org/',
         nomisma_ids: 'https://nomisma.org/id/',
-
+        gettytgn_ids: 'http://vocab.getty.edu/page/tgn/',
+        loc_ids: 'https://id.loc.gov/authorities/subjects/',
+        viaf_ids: 'https://viaf.org/viaf/',
+        trismegistos_ids: 'https://www.trismegistos.org/text/'
     };
 
     const labels = {
         item: 'A Wikidata entity: ',
         wikipedia_en: 'A Wikipedia page: ',
-        geonames_ids: 'A Geonames page: ',
+        geomes_ids: 'A Geonames page: ',
         nomisma_ids: 'A Nomisma ID: ',
+        gettytgn_ids: 'A Getty TGN ID: ',
+        loc_ids: 'A Library of Congress ID: ',
+        viaf_ids: 'A VIAF ID: ',
+        trismegistos_ids: 'A Trismegistos text: '
     };
 
     const links = Object.keys(urls).reduce((acc, key) => {
@@ -182,7 +214,7 @@ const buildFeature = (record, place, lon, lat, row) => {
  * @constant {string} recordsCsv - The content of the CSV file as a UTF-8 encoded string.
  * @requires fs - The Node.js File System module to read the file.
  */
-const recordsCsv = fs.readFileSync('../csv/enhanced.csv', { encoding: 'utf8' });
+const recordsCsv = fs.readFileSync('../csv/pleiades.csv', { encoding: 'utf8' });
 
 /**
  * Parses a CSV string into an array of objects using PapaParse.
@@ -198,7 +230,8 @@ const features = records.data.map(row => {
         description,extent,featureTypes,geoContext,hasConnectionsWith,
         id,locationPrecision,maxDate,minDate,modified,path,reprLat,
         reprLatLong,reprLong,tags,timePeriods,timePeriodsKeys,timePeriodsRange,
-        title,uid,chronique_ids,dare_ids,geonames_ids,gettytgn_ids,idaigaz_ids,loc_ids,manto_ids,nomisma_ids,topostext_ids,trismegistos_ids,viaf_ids,vici_ids,wikipedia_en
+        title,uid,chronique_ids,dare_ids,geomes_ids,gettytgn_ids,idaigaz_ids,loc_ids,manto_ids,nomisma_ids,
+        topostext_ids,trismegistos_ids,viaf_ids,vici_ids,wikipedia_en,commonsID
 
     } = row;
     const source = 'https://pleiades.stoa.org/places/' + id;
@@ -237,7 +270,7 @@ const features = records.data.map(row => {
         type: 'Feature',
         properties: {
             title,formattedDate,modifiedDate,authors,yearAdded,hasConnectionsWith,timePeriods, locationPrecision, minDate, maxDate, placeTypes, timePeriodsKeysFormatted, timePeriodsRange,
-            chronique_ids,dare_ids,geonames_ids,gettytgn_ids,idaigaz_ids,loc_ids,manto_ids,nomisma_ids,topostext_ids,trismegistos_ids,viaf_ids,vici_ids,wikipedia_en
+            geomes_ids,gettytgn_ids,idaigaz_ids,loc_ids,nomisma_ids,trismegistos_ids,viaf_ids,wikipedia_en,commonsID
         },
         descriptions: [{ value: trimmedDescription }]
     };
@@ -258,4 +291,5 @@ const fc = {
  *
  * @requires fs - The Node.js File System module to write the file.
  */
+
 fs.writeFileSync('../docs/data/pleiades.json', JSON.stringify(fc, null, 2), 'utf8');
