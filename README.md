@@ -31,10 +31,6 @@ Special thanks to the following individuals for their contributions and support:
 - **Elton Barker**: For his contributions to the study of ancient geography.
 - **Rainer Simon**: For developing Peripleo and his ongoing support.
 
-## Getting Started
-
-To get started with this project, clone the repository and follow the installation instructions in the [INSTALL.md](INSTALL.md) file.
-
 ## Contact
 
 For any questions or inquiries, please contact the project maintainers.
