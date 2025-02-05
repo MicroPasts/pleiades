@@ -19,10 +19,11 @@
     { "pattern": "wikipedia.org", "img":"./logos/en.wikipedia.org.png", "label": "Wikipedia"},
     { "pattern": "pleiades.stoa.org", "img":"./logos/pleiades.png"},
     { "pattern": "nomisma.org", "img":"./logos/Nomisma_02-300x300.jpg"},
-    { "pattern": "loc.gov", "img": "./logos/loc.png", "label": "Library of Congress" },
+    { "pattern": "id.loc.gov", "img": "./logos/loc.png", "label": "Library of Congress" },
     { "pattern": "viaf.org", "img": "./logos/viaf.png", "label": "VIAF" },
     { "pattern": "trismegistos.org", "img": "./logos/trismegistos.png", "label": "Trismegistos" },
-    { "pattern": "getty.edu", "img": "./logos/getty.png", "label": "Getty TGN" }
+    { "pattern": "vocab.getty.edu", "img": "./logos/getty.png", "label": "Getty TGN" },
+    { "pattern": "geonames.org", "img": "./logos/www.geonames.org.svg", "label": "GeoNames" }
   ],
   "layers": [
     { 
