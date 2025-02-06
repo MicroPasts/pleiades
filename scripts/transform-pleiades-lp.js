@@ -8,12 +8,13 @@
  * @requires Papa - The PapaParse library to parse CSV data.
  * @requires commons - A module to generate Wikimedia Commons file paths.
  * @requires moment - The Moment.js library to handle date formatting.
+ * 
+ * Usage - node ./trasnform-pleiades-lp.js
  */
 import fs, { link } from 'fs';
 import Papa from 'papaparse';
 import commons from 'wikimedia-commons-file-path';
 import moment from 'moment';
-import { compress, decompress } from 'compress-json'
 
 /**
  * Creates a GeoJSON Point object from longitude and latitude.
@@ -47,7 +48,7 @@ const getIndexing = () => {
         "@context": "https://schema.org/",
         "@type": "Dataset",
         "name": "Pleiades - AWMC on Peripleo",
-        "description": "An enriched dataset of Heritage at Risk entries in England",
+        "description": "An enriched dataset of Pleiades data",
         "license": "https://creativecommons.org/licenses/by/3.0/",
         "identifier": "https://atlantides.org/downloads/pleiades/dumps/"
     }

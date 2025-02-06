@@ -7,6 +7,14 @@
 
 This project demonstrates the use of Peripleo to map Linked Ancient World Data (LAWD) from the Pleiades project. Peripleo is a powerful tool for visualizing and exploring historical geographic data.
 
+## How were these data prepared?
+
+1. Download latest [pleiades places csv](https://atlantides.org/downloads/pleiades/dumps/)
+2. Download [Tom Elliot's](https://github.com/paregorios) [Wikidata enriched dataset from Github](https://github.com/isawnyu/pleiades_wikidata)
+3. Use the R script to merge these two files
+4. Use openrefine to get json data from wikidata to get commons image identifiers
+5. Use the node script to transfrom these data to Linked Pasts
+
 ## Linked Open Data
 
 This project integrates Linked Open Data from various sources to enrich the mapping experience:
