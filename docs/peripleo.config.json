@@ -3,7 +3,7 @@
   "data": [
     { "name": "Pleiades", "format": "LINKED_PLACES", "src": "./data/pleiades.json" }
   ],
-  "map_style": "https://api.maptiler.com/maps/landscape/style.json?key=ynnfqxA9mRQr0aCQHOWq",
+  "map_style": "https://api.maptiler.com/maps/backdrop/style.json?key=ynnfqxA9mRQr0aCQHOWq",
   "welcome_message": "welcome.md",
   "facets": [
     { "name": "Year added", "path": ["properties", "yearAdded"] },
