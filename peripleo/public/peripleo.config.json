@@ -1,0 +1,64 @@
+{
+  "initial_bounds": [-5.79, 49.89, 1.78, 55.81],
+  "map_style": "./map-style-OSM.json",
+  "welcome_message": "welcome.md",
+  "data": [
+    {
+      "name": "Heritage at Risk",
+      "format": "LINKED_PLACES",
+      "src": "./data/harLP.json",
+      "attribution": "Historic England OGL v3.0"
+    }
+  ],
+  "layers": [
+  { 
+    "name": "Historic England Regions", 
+    "type": "geojson",
+    "src": "./data/he_regions.geojson", 
+    "color": "#000000" 
+  }
+],
+  "facets": [
+    {
+      "name": "Site type", "path": ["properties", "siteType"]
+    },
+    {
+      "name": "County", "path": ["properties", "county"]
+    },
+    {
+      "name": "Site sub type", "path": ["properties", "siteSubType"]
+    },
+    {
+      "name": "Parliamentary Constituency", "path": ["properties", "parliamentaryConstituency"]
+    },
+    {
+      "name": "Region", "path": ["properties", "region"]
+    },
+    {
+      "name": "Assessment Type", "path": ["properties", "assessmentType"]
+    },
+    {
+      "name": "Condition", "path": ["properties", "condition"]
+    },
+    {
+      "name": "Priority", "path": ["properties", "priority"]
+    },
+    {
+      "name": "Heritage Category", "path": ["properties", "heritageCategory"]
+    },
+    {
+      "name": "Ownership", "path": ["properties", "ownership"]
+    },
+    {
+      "name": "Year first listed", "path": ["properties", "yearListed"]
+    }
+  ],
+  "link_icons": [
+	    { "pattern": "historicengland.org.uk", "img": "./logos/HE.jpg", "label": "Historic England" },
+	    { "pattern": "www.wikidata.org", "img": "./logos/www.wikidata.org.svg", "label": "Wikidata" },
+      { "pattern": "commons.wikimedia.org", "img": "./logos/Commons-logo-en.svg.png", "label": "Wikimedia Commons" },
+      { "pattern": "achurchnearyou.com", "img":"./logos/c_of_logo_v3.jpg", "label": "A Church Near You" },
+      { "pattern": "britishlistedbuildings.co.uk", "img":"./logos/britishlistedbuildings.jpg", "label": "British Listed Buildings"},
+      { "pattern": "wikipedia.org", "img":"./logos/en.wikipedia.org.png", "label": "Wikipedia"}
+	  ]
+}

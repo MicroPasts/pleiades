@@ -1,5 +1,7 @@
 # Pleiades demo of Peripleo
 
+[![ORCiD](https://img.shields.io/badge/ORCiD-0000--0002--0246--2335-green.svg)]
+
 ![A social media card showing an AI generated image of a Roman ruin](https://micropasts.github.io/pleiades/social-media-preview.jpeg)
 > Prompt to create image in Microsoft copilot: Roman ruins in Italy with the words Pleiades and LAWD overlaid at the top right.
 
@@ -10,7 +12,7 @@ This project demonstrates the use of Peripleo to map Linked Ancient World Data (
 ## How were these data prepared?
 
 1. Download latest [pleiades places csv](https://atlantides.org/downloads/pleiades/dumps/)
-2. Download [Tom Elliot's](https://github.com/paregorios) [Wikidata enriched dataset from Github](https://github.com/isawnyu/pleiades_wikidata)
+2. Download [Tom Elliott's](https://github.com/paregorios) [Wikidata enriched dataset from Github](https://github.com/isawnyu/pleiades_wikidata)
 3. Use the R script to merge these two files
 4. Use openrefine to get json data from wikidata to get commons image identifiers
 5. Use the node script to transfrom these data to Linked Pasts

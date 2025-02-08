@@ -3,7 +3,7 @@
  * and writes the resulting data to a JSON file. The script includes functions to generate GeoJSON 
  * objects, metadata, types, depictions, and links based on the provided data.
  *
- * @file /heritage-at-risk/scripts/transform-har-lp-enhanced.js
+ * @file /pleiades-peripleo/scripts/transform-har-lp-enhanced.js
  * @requires fs - The Node.js File System module to read and write files.
  * @requires Papa - The PapaParse library to parse CSV data.
  * @requires commons - A module to generate Wikimedia Commons file paths.
@@ -33,9 +33,9 @@ const getPlace = (lon,lat) => {
 }
 
 /**
- * Generates an indexing object for the Heritage-at-Risk dataset.
+ * Generates an indexing object for the Pleiades dataset.
  *
- * @returns {Object} An object containing metadata for the Heritage-at-Risk dataset.
+ * @returns {Object} An object containing metadata for the Pleiades dataset.
  * @returns {string} @returns.@context - The context URL for the schema.
  * @returns {string} @returns.@type - The type of the schema object.
  * @returns {string} @returns.name - The name of the dataset.
