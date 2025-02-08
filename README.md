@@ -1,6 +1,6 @@
 # Pleiades demo of Peripleo
 
-[![ORCiD](https://img.shields.io/badge/ORCiD-0000--0002--0246--2335-green.svg)]
+![ORCiD](https://img.shields.io/badge/ORCiD-0000--0002--0246--2335-green.svg)
 
 ![A social media card showing an AI generated image of a Roman ruin](https://micropasts.github.io/pleiades/social-media-preview.jpeg)
 > Prompt to create image in Microsoft copilot: Roman ruins in Italy with the words Pleiades and LAWD overlaid at the top right.
